@@ -45,6 +45,28 @@
 						   OptionsItemTemplate="{StaticResource HamburgerItemTemplate}"
 						   PaneBackground="DarkGray"
 						   VerticalAlignment="Stretch">
+
+			<!-- Menu -->
+			<!-- Used the UWP Segoe MDL2 Assets from Windows Store to choose glyphs. -->
+
+			<mtc:HamburgerMenu.ItemsSource>
+				<mtc:HamburgerMenuItemCollection>
+					<mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="My Tweets" />
+					<mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="Privacy" />
+					<mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="Settings" />
+				</mtc:HamburgerMenuItemCollection>
+			</mtc:HamburgerMenu.ItemsSource>
+
+			<!--  Options (appear at the bottom of the menu)  -->
+			<mtc:HamburgerMenu.OptionsItemsSource>
+				<mtc:HamburgerMenuItemCollection>
+					<mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="About" />
+				</mtc:HamburgerMenuItemCollection>
+			</mtc:HamburgerMenu.OptionsItemsSource>
 		</mtc:HamburgerMenu>
 	</Grid>
 </Page>
