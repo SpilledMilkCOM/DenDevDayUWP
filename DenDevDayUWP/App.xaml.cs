@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace DenDevDayUWP
+namespace SM.DenDevDayUWP
 {
 	/// <summary>
 	/// Provides application-specific behavior to supplement the default Application class.
@@ -83,8 +83,8 @@ namespace DenDevDayUWP
 			if (rootFrame == null)
 				return;
 
-			// Navigate back if possible, and if the event has not 
-			// already been handled .
+			// Navigate back if possible, and if the event has not already been handled.
+
 			if (rootFrame.CanGoBack && e.Handled == false)
 			{
 				e.Handled = true;

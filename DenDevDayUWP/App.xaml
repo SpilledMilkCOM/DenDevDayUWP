@@ -1,8 +1,6 @@
-﻿<Application
-    x:Class="DenDevDayUWP.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:DenDevDayUWP"
-    RequestedTheme="Light">
+﻿<Application x:Class="SM.DenDevDayUWP.App"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 RequestedTheme="Light">
 
 </Application>

@@ -1,4 +1,4 @@
-﻿<Page x:Class="DenDevDayUWP.MainPage"
+﻿<Page x:Class="SM.DenDevDayUWP.MainPage"
 	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,26 +13,40 @@
 	</Page.DataContext>
 
 	<Page.Resources>
-		<DataTemplate x:Key="HamburgerItemTemplate"
-					  x:DataType="mtc:HamburgerMenuGlyphItem">
-			<Grid Width="240"
-				  Height="48">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="48" />
-					<ColumnDefinition />
-				</Grid.ColumnDefinitions>
-				<FontIcon Grid.Column="0"
-						  Margin="12"
-						  FontFamily="Segoe MDL2 Assets"
-						  Foreground="White"
-						  Glyph="{x:Bind Glyph}" />
-				<TextBlock Grid.Column="1"
-						   VerticalAlignment="Center"
-						   FontSize="16"
-						   Foreground="White"
-						   Text="{x:Bind Label}" />
-			</Grid>
-		</DataTemplate>
+		<ResourceDictionary>
+			<DataTemplate x:Key="HamburgerItemTemplate"
+						  x:DataType="mtc:HamburgerMenuGlyphItem">
+				<Grid Width="240"
+					  Height="48">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="48" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<FontIcon Grid.Column="0"
+							  Margin="12"
+							  FontFamily="Segoe MDL2 Assets"
+							  Foreground="White"
+							  Glyph="{x:Bind Glyph}" />
+					<TextBlock Grid.Column="1"
+							   VerticalAlignment="Center"
+							   FontSize="16"
+							   Foreground="White"
+							   Text="{x:Bind Label}" />
+				</Grid>
+			</DataTemplate>
+
+			<DataTemplate x:Name="TweetTemplate">
+				<Grid HorizontalAlignment="Stretch">
+					<Rectangle Fill="White"
+							   Opacity="0.15" />
+					<TextBlock Text="{Binding Text}"
+							   TextWrapping="Wrap"
+							   FontSize="25"
+							   Margin="0,8,0,8"
+							   VerticalAlignment="Center" />
+				</Grid>
+			</DataTemplate>
+		</ResourceDictionary>
 	</Page.Resources>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -62,7 +76,7 @@
 			</mtc:HamburgerMenu.ItemsSource>
 
 			<!--  Options (appear at the bottom of the menu)  -->
-			
+
 			<mtc:HamburgerMenu.OptionsItemsSource>
 				<mtc:HamburgerMenuItemCollection>
 					<mtc:HamburgerMenuGlyphItem Glyph=""
@@ -71,10 +85,47 @@
 			</mtc:HamburgerMenu.OptionsItemsSource>
 
 			<!--  Content  -->
-			
+
 			<Grid x:Name="uxContent">
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<StackPanel x:Name="uxCredentialsBox"
+							Grid.Row="1"
+							Margin="24"
+							Orientation="Vertical">
+
+					<ProgressBar x:Name="uxProgressBar"
+								 Height="15"
+								 IsIndeterminate="True"
+								 Background="Transparent"
+								 Foreground="#45CCF5"
+								 VerticalAlignment="Bottom"
+								 Visibility="{Binding BusyVisibility}" />
+
+					<TextBlock x:Name="uxMessage"
+							   Grid.Row="5"
+							   Text="{Binding Message}"
+							   Foreground="{Binding MessageBrush}"
+							   Visibility="{Binding MessageVisibility}"
+							   HorizontalAlignment="Center" />
+				</StackPanel>
+
+				<StackPanel Grid.Row="2"
+							Orientation="Horizontal">
+
+				</StackPanel>
+
+				<ListBox x:Name="uxTweets"
+						 Grid.Row="3"
+						 ItemsSource="{Binding Tweets}"
+						 ItemTemplate="{StaticResource TweetTemplate}" />
+
 			</Grid>
-			
+
 		</mtc:HamburgerMenu>
 	</Grid>
 </Page>

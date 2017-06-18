@@ -6,7 +6,7 @@ using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace DenDevDayUWP
+namespace SM.DenDevDayUWP
 {
 	/// <summary>
 	/// An empty page that can be used on its own or navigated to within a Frame.
@@ -17,6 +17,8 @@ namespace DenDevDayUWP
         {
             this.InitializeComponent();
         }
+
+		//----==== PRIVATE ====--------------------------------------------------------------------
 
 		private MainPageViewModel ViewModel
 		{
@@ -35,7 +37,6 @@ namespace DenDevDayUWP
 				ViewModel.ExecuteMenuItem(item.Label);
 			}
 		}
-
 
 		private void OnLoaded(object sender, RoutedEventArgs e)
 		{

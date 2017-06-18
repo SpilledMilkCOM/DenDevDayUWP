@@ -91,6 +91,9 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="project.json" />
+    <Content Include="OAuthTemplate.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -99,7 +102,9 @@
     <Compile Include="Common\AppConstants.cs" />
     <Compile Include="Common\CacheUtility.cs" />
     <Compile Include="Common\ModelBase.cs" />
+    <Compile Include="Common\OAuth.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SerializationUtil.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
     <Compile Include="Common\ViewUtil.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -126,6 +131,9 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Secret.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
