@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using SM.Common.ViewModel;
 using SM.DenDevDayUWP.ViewModels;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -33,6 +34,12 @@ namespace DenDevDayUWP
 			{
 				ViewModel.ExecuteMenuItem(item.Label);
 			}
+		}
+
+
+		private void OnLoaded(object sender, RoutedEventArgs e)
+		{
+			ViewModel.Initialize(Frame);
 		}
 	}
 }

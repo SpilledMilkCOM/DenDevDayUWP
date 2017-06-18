@@ -8,9 +8,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 using SM.Common.Models;
-using SM.Common.ViewModel;
 
-namespace SM.Common.ViewModels
+namespace SM.Common.ViewModel
 {
 	public abstract class ViewModelBase : ModelBase
 	{

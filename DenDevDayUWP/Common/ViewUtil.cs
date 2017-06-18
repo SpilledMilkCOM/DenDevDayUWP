@@ -57,6 +57,5 @@ namespace SM.Common.ViewModel
 
 			return viewModel;
 		}
-
 	}
 }

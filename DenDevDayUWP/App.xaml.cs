@@ -1,26 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace DenDevDayUWP
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
-    sealed partial class App : Application
+	/// <summary>
+	/// Provides application-specific behavior to supplement the default Application class.
+	/// </summary>
+	sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -41,9 +32,16 @@ namespace DenDevDayUWP
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (rootFrame == null)
+#if DEBUG
+			if (System.Diagnostics.Debugger.IsAttached)
+			{
+				this.DebugSettings.EnableFrameRateCounter = true;
+			}
+#endif
+
+			// Do not repeat app initialization when the Window already has content,
+			// just ensure that the window is active
+			if (rootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
@@ -57,7 +55,9 @@ namespace DenDevDayUWP
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
-            }
+
+				SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+			}
 
             if (e.PrelaunchActivated == false)
             {
@@ -68,17 +68,36 @@ namespace DenDevDayUWP
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
         }
 
-        /// <summary>
-        /// Invoked when Navigation to a certain page fails
-        /// </summary>
-        /// <param name="sender">The Frame which failed navigation</param>
-        /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+		//----==== PRIVATE ====--------------------------------------------------------------------
+
+		private void App_BackRequested(object sender, BackRequestedEventArgs e)
+		{
+			Frame rootFrame = Window.Current.Content as Frame;
+
+			if (rootFrame == null)
+				return;
+
+			// Navigate back if possible, and if the event has not 
+			// already been handled .
+			if (rootFrame.CanGoBack && e.Handled == false)
+			{
+				e.Handled = true;
+				rootFrame.GoBack();
+			}
+		}
+
+		/// <summary>
+		/// Invoked when Navigation to a certain page fails
+		/// </summary>
+		/// <param name="sender">The Frame which failed navigation</param>
+		/// <param name="e">Details about the navigation failure</param>
+		private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
@@ -96,5 +115,5 @@ namespace DenDevDayUWP
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-    }
+	}
 }
