@@ -6,9 +6,11 @@ Hopefully the talk will inspire others (think of LEGO Emmet's speech)  to help w
 ##### "And I am NOT what you call a creative type."
 
 1. Created DEFAULT UWP template.
-2. Add Hamburger Menu
-3. Add About
-4. Add Settings
-5. Add Privacy
-6. Add Twitter fields
-7. 
+2. Added Hamburger Menu
+3. Added About
+4. Added OAuth externalization.
+5. Added Twitter initialization
+6. Added Tweet List
+7. Add Settings
+8. Add Privacy
+9. Add Twitter fields
