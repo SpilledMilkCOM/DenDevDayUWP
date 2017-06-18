@@ -7,7 +7,7 @@
     <ProjectGuid>{B07220C8-5F4D-4454-A58F-7E1D67581071}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DenDevDayUWP</RootNamespace>
+    <RootNamespace>SM.DenDevDayUWP</RootNamespace>
     <AssemblyName>DenDevDayUWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
@@ -96,10 +96,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\AppConstants.cs" />
+    <Compile Include="Common\CacheUtility.cs" />
+    <Compile Include="Common\ModelBase.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="Common\ViewUtil.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -128,6 +135,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
