@@ -1,0 +1,32 @@
+﻿<Page x:Class="SM.DenDevDayUWP.Settings"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	  xmlns:viewModels="using:SM.DenDevDayUWP.ViewModels"
+	  mc:Ignorable="d">
+
+	<Page.DataContext>
+		<viewModels:SettingsViewModel />
+	</Page.DataContext>
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<StackPanel>
+			<TextBox Header="Access Token:"
+					 Margin="10,5"
+					 Text="{Binding AccessToken}" />
+			<TextBox Header="Access Token Secret:"
+					 Margin="10,5"
+					 Text="{Binding AccessTokenSecret}" />
+			<TextBox Header="Callback Uri:"
+					 Margin="10,5"
+					 Text="{Binding CallbackUri}" />
+			<TextBox Header="Consumer Key:"
+					 Margin="10,5"
+					 Text="{Binding ConsumerKey}" />
+			<TextBox Header="Consumer Key Secret:"
+					 Margin="10,5"
+					 Text="{Binding ConsumerKeySecret}" />
+		</StackPanel>
+	</Grid>
+</Page>

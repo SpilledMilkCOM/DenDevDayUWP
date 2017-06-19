@@ -79,6 +79,8 @@
 
 			<mtc:HamburgerMenu.OptionsItemsSource>
 				<mtc:HamburgerMenuItemCollection>
+					<mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="Logout" />
 					<mtc:HamburgerMenuGlyphItem Glyph=""
 												Label="About" />
 				</mtc:HamburgerMenuItemCollection>
@@ -89,13 +91,12 @@
 			<Grid x:Name="uxContent">
 
 				<Grid.RowDefinitions>
+					<RowDefinition Height="30" />
 					<RowDefinition Height="Auto" />
 					<RowDefinition Height="*" />
 				</Grid.RowDefinitions>
 
-				<StackPanel x:Name="uxCredentialsBox"
-							Grid.Row="1"
-							Margin="24"
+				<StackPanel Grid.Row="1"
 							Orientation="Vertical">
 
 					<ProgressBar x:Name="uxProgressBar"
@@ -107,20 +108,14 @@
 								 Visibility="{Binding BusyVisibility}" />
 
 					<TextBlock x:Name="uxMessage"
-							   Grid.Row="5"
 							   Text="{Binding Message}"
 							   Foreground="{Binding MessageBrush}"
 							   Visibility="{Binding MessageVisibility}"
 							   HorizontalAlignment="Center" />
 				</StackPanel>
 
-				<StackPanel Grid.Row="2"
-							Orientation="Horizontal">
-
-				</StackPanel>
-
 				<ListBox x:Name="uxTweets"
-						 Grid.Row="3"
+						 Grid.Row="2"
 						 ItemsSource="{Binding Tweets}"
 						 ItemTemplate="{StaticResource TweetTemplate}" />
 
