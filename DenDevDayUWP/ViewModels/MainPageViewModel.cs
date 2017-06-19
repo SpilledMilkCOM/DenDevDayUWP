@@ -14,7 +14,7 @@ namespace SM.DenDevDayUWP.ViewModels
 	{
 		public const string ABOUT_MENU_OPT = "About";
 		public const string LOGOUT_MENU_OPT = "Logout";
-		public const string MY_TWEETS_MENU_OPT = "My Tweets";
+		public const string TWEET_MENU_OPT = "Tweet";
 		public const string PRIVACY_MENU_OPT = "Privacy";
 		public const string SETTINGS_MENU_OPT = "Settings";
 
@@ -35,8 +35,9 @@ namespace SM.DenDevDayUWP.ViewModels
 			AboutCommand = new RelayCommand(About);
 			LogoutCommand = new RelayCommand(Logout);
 			SettingsCommand = new RelayCommand(Settings);
+            SendTweetCommand = new RelayCommand(SendTweet);
 
-			if (!IsDesignModeEnabled)
+            if (!IsDesignModeEnabled)
 			{
 				InitializeTwitter();
 			}
@@ -117,9 +118,11 @@ namespace SM.DenDevDayUWP.ViewModels
 
 		public RelayCommand SettingsCommand { get; private set; }
 
-		//----==== PUBLIC ====---------------------------------------------------------------------
+        public RelayCommand SendTweetCommand { get; private set; }
 
-		public void ExecuteMenuItem(string label)
+        //----==== PUBLIC ====---------------------------------------------------------------------
+
+        public void ExecuteMenuItem(string label)
 		{
 			switch (label)
 			{
@@ -135,16 +138,16 @@ namespace SM.DenDevDayUWP.ViewModels
 					ViewUtil.ExecuteRelayCommand(SettingsCommand);
 					break;
 
-					//case MY_TWEETS_CMD:
-					//	ViewUtil.ExecuteRelayCommand(MyTweetsCommand);
-					//	break;
+                case TWEET_MENU_OPT:
+                    ViewUtil.ExecuteRelayCommand(SendTweetCommand);
+                    break;
 
-					//case PRIVACY_CMD:
-					//	ViewUtil.ExecuteRelayCommand(PrivacyCommand);
-					//	break;
+                    //case PRIVACY_CMD:
+                    //	ViewUtil.ExecuteRelayCommand(PrivacyCommand);
+                    //	break;
 
-			}
-		}
+            }
+        }
 
 		//----==== PRIVATE ====--------------------------------------------------------------------
 
@@ -238,7 +241,12 @@ namespace SM.DenDevDayUWP.ViewModels
 			Application.Current.Exit();
 		}
 
-		private void Settings()
+        private void SendTweet()
+        {
+            NavigateToView(typeof(SendTweet));
+        }
+
+        private void Settings()
 		{
 			NavigateToView(typeof(Settings));
 		}

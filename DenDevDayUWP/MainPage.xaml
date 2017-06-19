@@ -78,8 +78,8 @@
 
 			<mtc:HamburgerMenu.ItemsSource>
 				<mtc:HamburgerMenuItemCollection>
-					<mtc:HamburgerMenuGlyphItem Glyph=""
-												Label="My Tweets" />
+                    <mtc:HamburgerMenuGlyphItem Glyph=""
+												Label="Tweet" />
 					<mtc:HamburgerMenuGlyphItem Glyph=""
 												Label="Privacy" />
 					<mtc:HamburgerMenuGlyphItem Glyph=""
