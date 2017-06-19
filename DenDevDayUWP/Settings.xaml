@@ -11,14 +11,8 @@
 	</Page.DataContext>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<StackPanel>
-			<TextBox Header="Access Token:"
-					 Margin="10,5"
-					 Text="{Binding AccessToken}" />
-			<TextBox Header="Access Token Secret:"
-					 Margin="10,5"
-					 Text="{Binding AccessTokenSecret}" />
-			<TextBox Header="Callback Uri:"
+        <StackPanel>
+            <TextBox Header="Callback Uri:"
 					 Margin="10,5"
 					 Text="{Binding CallbackUri}" />
 			<TextBox Header="Consumer Key:"

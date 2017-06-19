@@ -5,8 +5,6 @@ namespace SM.DenDevDayUWP.ViewModels
 {
 	public class SettingsViewModel : ViewModelBase
 	{
-		private string _accessToken;
-		private string _accessTokenSecret;
 		private string _callbackUri;
 		private string _consumerKey;
 		private string _consumerKeySecret;
@@ -16,18 +14,10 @@ namespace SM.DenDevDayUWP.ViewModels
 			var oauth = new OAuth();
 
 			oauth.Load();
-		}
 
-		public string AccessToken
-		{
-			get { return _accessToken; }
-			set { SetValue(value, ref _accessToken); }
-		}
-
-		public string AccessTokenSecret
-		{
-			get { return _accessTokenSecret; }
-			set { SetValue(value, ref _accessTokenSecret); }
+            CallbackUri = oauth.CallbackUri;
+            ConsumerKey = oauth.ConsumerKey;
+            ConsumerKeySecret = oauth.ConsumerKeySecret;
 		}
 
 		public string CallbackUri
