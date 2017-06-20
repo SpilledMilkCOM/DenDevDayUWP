@@ -12,9 +12,25 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Margin="10">
-            <TextBox Text="{Binding TweetText, Mode=TwoWay}"
+            <StackPanel>
+                <ProgressBar x:Name="uxProgressBar"
+                             Height="15"
+                             IsIndeterminate="True"
+                             Background="Transparent"
+                             Foreground="#45CCF5"
+                             VerticalAlignment="Bottom"
+                             Visibility="{Binding BusyVisibility}" />
+
+                <TextBlock x:Name="uxMessage"
+                           Text="{Binding Message}"
+                           Foreground="{Binding MessageBrush}"
+                           Visibility="{Binding MessageVisibility}"
+                           HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <TextBox Text="{Binding TweetText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,0,0,12"
-                     Header="Tweet" />
+                     Header="{Binding TweetTextHeader}" />
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -28,16 +44,16 @@
                 <TextBox Grid.Column="1"
                          Margin="0,0,6,12"
                          Header="Latitude"
-                         Text="{Binding Latitude}"/>
+                         Text="{Binding Latitude}" />
                 <TextBox Grid.Column="2"
                          Margin="6,0,6,12"
                          Header="Longitude"
-                         Text="{Binding Longitude}"/>
+                         Text="{Binding Longitude}" />
                 <CheckBox Grid.Column="3"
                           Margin="6,0,6,12"
                           VerticalAlignment="Bottom"
                           Content="Display Coords"
-                          IsChecked="{Binding DisplayCoords}"/>
+                          IsChecked="{Binding DisplayCoords}" />
             </Grid>
 
             <Button Margin="0,0,12,0"
