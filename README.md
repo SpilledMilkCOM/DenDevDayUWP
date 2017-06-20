@@ -11,6 +11,7 @@ Hopefully the talk will inspire others (think of LEGO Emmet's speech)  to help w
 4. Added OAuth externalization.
 5. Added Twitter initialization
 6. Added Tweet List
-7. Add Settings
+7. Added Settings
 8. Add Privacy
-9. Add Twitter fields
+9. Added Twitter fields
+10. Added Lat / Long (with location)
