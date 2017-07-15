@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenDevDayUWP", "DenDevDayUWP/DenDevDayUWP.csproj", "{B07220C8-5F4D-4454-A58F-7E1D67581071}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DenDevDayUWP", "DenDevDayUWP\DenDevDayUWP.csproj", "{B07220C8-5F4D-4454-A58F-7E1D67581071}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6EB161DB-D874-41E1-BEFA-9B3E7B45819E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
